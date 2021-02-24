@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -34,42 +33,40 @@ function setup() {
 
  
 
-  var object_options={
-    isStatic:false,
-  
-    
- }
+ // var object_options={
+  // isStatic:true,
+//}
 
  star=createSprite(700,50,10,10);
  star.addImage(starImg);
  star.scale=0.3;
 
-  starBody=Bodies.rectangle(700,50,10,10,object_options);
-  World.add(world,star);
+  starBody=Bodies.rectangle(700,50,10,10);
+  World.add(world,starBody);
 
 }
 
 
 function draw() {
   background("black");
- 
+ Engine.update(engine);
+
   star.x=starBody.position.x;
   star.y=starBody.position.y;
 
   if(keyDown("left")){
-    fairy.x=fairy.x-5;
+    fairy.x=fairy.x-10;
   }
   if(keyDown("right")){
-    fairy.x=fairy.x+5;
+    fairy.x=fairy.x+10;
     music.play();
   }
+  //Matter.Body.setVelocity(starBody,+2);
       if(keyDown("down")){
-      // star.velocityY=3;
-      //isStatic :false,
-      }
+     isStatic:false;
+    }
 
-      if(starBody.position.y>485){
-       
+      if(starBody.position.y>400){
          isStatic :true,
          music.stop();
       }
@@ -79,3 +76,6 @@ function draw() {
     
 
 }
+
+
+ 
