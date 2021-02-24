@@ -66,7 +66,7 @@ function draw() {
      isStatic:false;
     }
 
-      if(starBody.position.y>400){
+      if(starBody.position.y>470){
          isStatic :true,
          music.stop();
       }
